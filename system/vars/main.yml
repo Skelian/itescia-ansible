@@ -1,0 +1,7 @@
+---
+# vars file for system
+users:
+  - { name: toto, shell: /bin/bash }
+  - { name: tata, shell: /bin/bash }
+  - { name: tutu, shell: /bin/bash }
+  - { name: titi, shell: /bin/bash }

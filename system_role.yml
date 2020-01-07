@@ -1,0 +1,7 @@
+---
+#system_role
+- name: "configuration general avec roles"
+  hosts: all
+  become: true
+  roles:
+    - role: system

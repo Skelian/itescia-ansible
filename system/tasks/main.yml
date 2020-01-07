@@ -1,0 +1,16 @@
+---
+# tasks file for system
+- name: "creation users"
+  user:
+    name: "{{ item.name }}"
+    create_home: yes
+    shell: "{{ item.shell }}"
+  with_items: "{{ users }}"
+
+- name: "creation clé pour les users"
+  authorized_key:
+      user: "{{ item.name }}"
+      state: present
+      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+  with_items: "{{ users }}"
+
