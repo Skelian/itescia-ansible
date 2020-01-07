@@ -3,7 +3,11 @@
 - name: "configuration general"
   hosts: all
   become: true
-#  vars:
+  vars:
+    list_users:
+      - toto
+      - titi
+      - tata
 #    ansible_user: itesciaadmin
   tasks:
   - name: "creation users adminitescia"
@@ -17,3 +21,8 @@
       name: htop
       state: present
 
+  - name: "Création clé ssh pour"
+    authorized_key:
+      user: adminitescia
+      state: present
+      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
