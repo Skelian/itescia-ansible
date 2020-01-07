@@ -12,10 +12,11 @@
   tasks:
   - name: "creation users adminitescia"
     user: 
-      name: adminitescia
+      name: "{{ item }}"
       create_home: yes
       shell: /bin/bash      
-
+    loop: "{{ list_users }}"
+  
   - name: "déployage des packages htop+vim"
     package:
       name: htop
@@ -23,6 +24,7 @@
 
   - name: "Création clé ssh pour"
     authorized_key:
-      user: adminitescia
+      user: "{{ item }}"
       state: present
       key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    loop: "{{ list_users }}"
