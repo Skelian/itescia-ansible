@@ -1,0 +1,19 @@
+---
+#infra itescia 
+- name: "configuration general"
+  hosts: all
+  become: true
+#  vars:
+#    ansible_user: itesciaadmin
+  tasks:
+  - name: "creation users adminitescia"
+    user: 
+      name: adminitescia
+      create_home: yes
+      shell: /bin/bash      
+
+  - name: "déployage des packages htop+vim"
+    package:
+      name: htop
+      state: present
+

@@ -1,0 +1,12 @@
+all:
+
+  children:
+    dhcpservers:
+      hosts:
+        10.0.0.254:
+    dnsserver:
+      hosts:
+        10.0.0.102:
+    backupserver:
+      hosts:
+        10.0.0.101:
